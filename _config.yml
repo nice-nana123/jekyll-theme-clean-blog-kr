@@ -1,18 +1,18 @@
-title:              "블로그 제목"
-tagline:            "블로그 슬로건"
-email:              "your-email@example.com"
-description:        "블로그 설명"
-author:             "작성자 이름"
+title:              "뭐 이런걸 다"
+tagline:            "별 걸 다 하는 마케터"
+email:              "na.keter20@gmail.com"
+description:        "아.. 그것도 제가 하나요? 별 걸 다 함께 해봅시다."
+author:             "nice-nana"
 baseurl:            "/"
-url:                "https://도메인"
+url:                "https://nice-nana.com"
 locale:             "ko_KR"
-thumbnail:          "/img/thumbnail.jpg"
+thumbnail:          "/img/main_thumb_1200x628.png"
 
 # Social Profiles
-twitter_username:   twitter_username
-instagram_username: instagram_username
-facebook_username:  facebook_username
-linkedin_username:  linkedin_username
+twitter_username:
+instagram_username:
+facebook_username:
+linkedin_username:
 
 # Build settings
 markdown:           kramdown
