@@ -95,4 +95,18 @@
   <meta name="theme-color" content="#ffffff">
   <!-- End Favicon Tag -->
 
+  {% if page.feature %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{{ page.title }}",
+      "image": [
+        "{{ site.github.url }}{{ page.feature }}"
+       ],
+      "datePublished": "{{ page.date }}"
+    }
+  </script>
+  {% endif %}
+
 </head>
