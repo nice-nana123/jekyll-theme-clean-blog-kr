@@ -1,12 +1,12 @@
 // 아래에 폰트를 불러오는 코드를 넣어주세요.
 // Global styling for this template
 
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Song+Myung&family=Stylish&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&family=Noto+Serif+KR:wght@700&display=swap');
 
 body {
   font-size: 20px;
   color: $gray-900;
-  font-family: 'Nanum Myeongjo', serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 p {
@@ -19,7 +19,7 @@ p {
 }
 
 h1,{
-    font-family: 'Song Myung', serif;
+    font-family: 'Noto Serif KR', serif;
 }
 h2,
 h3,
