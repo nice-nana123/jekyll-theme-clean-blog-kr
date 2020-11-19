@@ -1,39 +1,33 @@
 ---
 layout: default
 ---
-
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMFP3P8"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-<!-- Page Header -->
-{% if page.background %}
-  <header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
-{% else %}
-  <header class="masthead">
-{% endif %}
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="page-heading">
-            <h1>{{ page.title }}</h1>
-            {% if page.description %}
-            <span class="subheading">{{ page.description }}</span>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-
-        {{ content }}
-
+<div class="container">
+  <div class="row">
+    <div class="col col-12 col-d-10 push-d-1 col-m-12 push-m-0">
+      <div class="page-head">
+        <h1 class="page-head__title">{{ page.title | escape }}</h1>
       </div>
     </div>
   </div>
+</div>
+
+<!-- begin page -->
+<article class="page fadein">
+  <div class="container">
+    <div class="row">
+      {% if page.image %}
+      <div class="col col-12 col-d-10 push-d-1 col-m-12 push-m-0">
+        <div class="image-box">
+          <div class="page-image" style="background-image: url({{site.baseurl}}{{page.image}})"></div>
+        </div>
+      </div>
+      {% endif %}
+      <div class="col col-8 col-d-10 push-d-1 push-2 col-m-12 push-m-0">
+        <div class="page__content">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+<!-- end page -->

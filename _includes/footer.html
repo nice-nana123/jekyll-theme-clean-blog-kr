@@ -1,65 +1,94 @@
-<!-- Footer -->
-
-<hr>
-
-<footer>
+<!-- begin footer-widgets -->
+<section class="footer-widgets">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <ul class="list-inline text-center">
-          {% if site.email %}
-          <li class="list-inline-item">
-            <a href="mailto:{{ site.email | encode_email }}">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="far fa-envelope fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          {% endif %}
-          {% if site.twitter_username %}
-          <li class="list-inline-item">
-            <a href="https://twitter.com/{{ site.twitter_username }}">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          {% endif %}
-          {% if site.facebook_username %}
-          <li class="list-inline-item">
-            <a href="https://www.facebook.com/{{ site.facebook_username }}">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          {% endif %}
-          {% if site.instagram_username %}
-          <li class="list-inline-item">
-            <a href="https://instagram.com/{{ site.instagram_username }}">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          {% endif %}
-          {% if site.linkedin_username %}
-          <li class="list-inline-item">
-            <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          {% endif %}
-        </ul>
-        <p class="copyright text-muted">Copyright &copy; {{ site.author }} {{ 'now' | date: "%Y" }}</p>
+      <div class="col col-12 col-d-10 push-d-1 col-m-12 push-m-0">
+        <div class="widget-box">
+          <div class="row">
+
+            <!-- {% if site.tags.size >= 1 %} -->
+            <div class="col col-4 col-d-6 col-t-12">
+              <div class="widget widget-about">
+                <div class="widget__head">
+                  <h4 class="widget__title">About Me</h4>
+                </div>
+                <p class="about__desc">발전하는 마케터 nana입니다.</p>
+              </div>
+              <!-- <div class="widget widget-tags">
+                <div class="widget__head">
+                  <h4 class="widget__title">Tags</h4>
+                </div>
+                <div class="tag__cloud">
+                  {{ site | tag_cloud }}
+                </div>
+              </div> -->
+            </div>
+            {% endif %}
+
+            <div class="col col-4 col-d-6 col-t-12">
+              <div class="widget widget-recent">
+                <div class="widget__head">
+                  <h4 class="widget__title">Recent Posts</h4>
+                </div>
+                {% for post in site.posts limit:3 %}
+                <div class="recent-posts">
+                  {% if post.image %}
+                    <a class="recent-posts__image" href="{{ post.url }}" style="background-image: url({{site.baseurl}}{{post.image}})"></a>
+                  {% else %}
+                  {% endif %}
+                  <span class="recent-posts__count">{{ forloop.index }}</span>
+                  <div class="recent-posts__content">
+                    <div class="recent-posts__date">
+                      <time datetime="{{ post.date | date_to_xmlschema }}">{{post.date | date: "%b %-d, %Y"}}</time>
+                    </div>
+                    <h6 class="recent-posts__title"><a href="{{ post.url }}">{{ post.title }}</a></h6>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+
+            <div class="col col-4 col-d-6 col-t-12">
+              {% if site.mailchimp %}
+              <div class="widget widget-subscribe">
+                <div class="widget__head">
+                  <h4 class="widget__title">Get Interesting News</h4>
+                </div>
+                <p class="subscribe-subtitle">{{site.mailchimp-description}}</p>
+                <form class="subscribe-form validate" action="{% if site.mailchimp-identifier %}//{{site.mailchimp-identifier}}{% else %}#{% endif %}"
+                  method="POST" id="membedded-subscribe-form" name="membedded-subscribe-form" target="_blank" novalidate>
+                  <div class="subscribe-group">
+                    <div class="subscribe-group-top">
+                      <label class="screen-reader-text" for="mce-EMAIL">Email address</label>
+                      <input class="subscribe-email required email" id="mce-EMAIL" type="text" name="EMAIL" placeholder="Email Address">
+                      <button class="subscribe-button button button--primary" id="membedded-subscribe" type="submit" name="subscribe">Subscribe</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              {% endif %}
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end footer-widgets -->
+
+<!-- begin footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12 col-d-10 push-d-1 col-m-12 push-m-0">
+        <div class="footer__inner">
+          {% include contact-links.html %}
+          <div class="copyright">{{site.time | date: '%Y'}} &copy; <a href="/">{{site.title}}</a>. Crafted & Designed by <a
+              href="https://jekyllthemes.io/developers/artem-sheludko">Artem Sheludko</a>.</div>
+        </div>
       </div>
     </div>
   </div>
 </footer>
+<!-- end footer -->
